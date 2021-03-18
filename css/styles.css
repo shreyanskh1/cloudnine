@@ -1,6 +1,6 @@
 :root {
-  --color-primary: #2584ff;
-  --color-secondary: #00d9ff;
+  	--color-primary: #2584ff;
+  	--color-secondary: #00d9ff;
 	--color-accent: #ff3400;
 	--color-headings: #1b0760;
 	--color-body: #918ca4;
@@ -16,6 +16,11 @@
 }
 
 /* Typography */
+::selection {
+	background: var(--color-primary);
+	color: #fff;
+}
+
 html {
 	/* 62.5% of 16px = 10px */
 	font-size: 62.5%;
@@ -137,7 +142,6 @@ a {
 .list {
 	list-style: none;
 	padding-left: 0;
-	color: var(--color-headings);
 }
 
 .list--inline .list__item {
@@ -148,6 +152,7 @@ a {
 .list--tick {
 	list-style-image: url(../images/tick.svg);
 	padding-left: 3rem;
+	color: var(--color-headings);
 }
 
 .list--tick .list__item {
@@ -416,6 +421,7 @@ a {
 /* Media */
 .media {
 	display: flex;
+	margin-bottom: 4rem;
 }
 
 .media__title {
@@ -489,6 +495,7 @@ a {
 		grid-template-columns: repeat(2, 1fr);
 	}
 }
+
 @media screen and (min-width: 1024px) {
 	.grid--1x3 {
 		grid-template-columns: repeat(3, 1fr);
@@ -502,6 +509,7 @@ a {
 
 .testimonial__image {
 	position: relative;
+	margin: 0 3rem;
 }
 
 .testimonial__image > img {
@@ -515,6 +523,10 @@ a {
 }
 
 @media screen and (min-width: 768px) {
+	.testimonial__image {
+		margin: 0;
+	}
+
 	.testimonial .quote,
 	.testimonial .quote__author {
 		font-size: 2.4rem;
@@ -522,6 +534,7 @@ a {
 
 	.testimonial .quote {
 		margin-left: 6rem;
+		margin-right: 0;
 	}
 }
 
@@ -617,18 +630,20 @@ a {
 	color: #7b858b;
 }
 
-.block--dark .block__heading {
+.block--dark h1,
+.block--dark h2,
+.block--dark h3 {
 	color: #fff;
 }
 
 .block--skewed-right {
 	padding-bottom: calc(var(--padding-vertical) + 4rem);
-	clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 80%);
+	clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 90%);
 }
 
 .block--skewed-left {
 	padding-bottom: calc(var(--padding-vertical) + 4rem);
-	clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
+	clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
 }
 
 .container {
@@ -700,9 +715,9 @@ a {
 }
 
 /* Hero */
-.hero {
+/* .hero {
 	clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
-}
+} */
 
 .hero__tagline {
 	font-size: 2rem;
@@ -782,5 +797,25 @@ a {
 @media screen and (min-width: 768px) {
 	.feature:nth-of-type(even) .feature__content {
 		order: 2;
+	}
+}
+
+/* Showcase Block */
+.block-showcase__image > img {
+	width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+	.block-showcase .grid {
+		grid-template-columns: 50% 50%;
+	}
+
+	.block-showcase__image {
+		justify-self: end;
+	}
+
+	.block-showcase__image > img {
+		width: auto;
+		max-width: 700px;
 	}
 }
